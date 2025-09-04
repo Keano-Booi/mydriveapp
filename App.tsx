@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image,SafeAreaView} from 'react-native';
 
 export default function App() {
 const age= 22;
-const licenseyears= 0;
+const licenseyears= 5;
 let feedback='';
 
 if (age>=18){
@@ -23,15 +23,25 @@ if (licenseyears>= 3){
 
 
 
+
   
   
   return (
-    <View style={styles.container}>
-     <Text style={styles.response}>{feedback}
+    <SafeAreaView style={styles.container}>
+      <View style={styles.content}>
+      <Text style={[styles.response,{fontSize:48,color:'black'}]}>Driving license checker</Text>
+        <Image source={{uri:'https://media.istockphoto.com/id/1665923565/nl/foto/happy-pretty-young-woman-leaning-out-of-car-window-traveling-on-holiday-road-trip-travel.jpg?s=2048x2048&w=is&k=20&c=0AudEu3qN_2oGk8mVjVqaC2PmzG2CbWIg8jdBFzjVmY=',}}
+        style={styles.image}/>
+         <Text style={styles.response}>Age: {age}</Text>
+         <Text style={styles.response}>licenseyears: {licenseyears}</Text>
+
+
+     <Text style={[styles.response,{fontSize:42,color:'black'}]}>{feedback}
       {/*This is my message to the user*/}
      </Text>
       
     </View>
+    </SafeAreaView>
   );
 }
 
@@ -42,9 +52,25 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  content:{
+    width:'100%',
+    alignItems:'center',
+  },
+
    response:{
     fontSize: 28,
     color:'black',
+    fontWeight:'bold',
+    marginVertical: 30,
+   },
+
+   image: {
+    width: 500,
+    height:300,
+    resizeMode:'contain',
+    top: 0,
+
     
 
    }
