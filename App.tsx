@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image,SafeAreaView} from 'react-native';
+import { StyleSheet, Text, View, Image,SafeAreaView, ScrollView,TextInput,Button} from 'react-native';
 
 export default function App() {
 const age= 22;
-const licenseyears= 3;
+const licenseyears= 2;
 let feedback='';
 
 if (age>=18){
@@ -31,19 +31,19 @@ if (licenseyears>= 3){
           break; 
 
           case 2:
-            drivingRank='intermediate driver'
+            drivingRank='intermediate driver';
             break;
 
             case 3:
-              drivingRank='Qualified driver'
+              drivingRank='Qualified driver';
               break;
 
               case 4 :
-              drivingRank='experienced driver'
+              drivingRank='experienced driver';
               break;
 
               default:
-                drivingRank='veteran driver with many years of experience'
+                drivingRank='veteran driver with many years of experience';
 
   }
 
@@ -56,10 +56,15 @@ if (licenseyears>= 3){
   
   return (
     <SafeAreaView style={styles.container}>
+      <ScrollView>
       <View style={styles.content}>
       <Text style={[styles.response,{fontSize:48,color:'black'}]}>Driving license checker</Text>
         <Image source={{uri:'https://media.istockphoto.com/id/1665923565/nl/foto/happy-pretty-young-woman-leaning-out-of-car-window-traveling-on-holiday-road-trip-travel.jpg?s=2048x2048&w=is&k=20&c=0AudEu3qN_2oGk8mVjVqaC2PmzG2CbWIg8jdBFzjVmY=',}}
         style={styles.image}/>
+        <TextInput style={styles.inputbox}placeholder='Enter your age' />
+        <View style={{marginTop:15,width:'60%',backgroundColor:'green'}}></View>
+          <Button title='Check details'/>
+
          <Text style={styles.response}>Age: {age}</Text>
          <Text style={styles.response}>licenseyears: {licenseyears}</Text>
 
@@ -70,8 +75,16 @@ if (licenseyears>= 3){
      <Text style={[styles.response,{fontSize:40,color:'black',alignItems:'center'}]}>{drivingRank}
       {/*This is my message to the user*/}
      </Text>
+     {/*this is the end of the driving component*/}
+
+     
+
+     
+
+
       
     </View>
+    </ScrollView>
     </SafeAreaView>
   );
 }
@@ -93,7 +106,7 @@ const styles = StyleSheet.create({
     fontSize: 28,
     color:'black',
     fontWeight:'bold',
-    marginVertical: 30,
+    marginVertical: 25,
    },
 
    image: {
@@ -101,6 +114,17 @@ const styles = StyleSheet.create({
     height:400,
     resizeMode:'contain',
     top: 0,
+   },
+
+   inputbox: {
+    width:'80%',
+    borderWidth: 1,
+    borderColor:'white',
+    padding: 10,
+    backgroundColor:'white',
+    borderRadius:8,
+
+   
 
     
 
