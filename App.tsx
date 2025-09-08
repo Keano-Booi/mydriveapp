@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image,SafeAreaView} from 'react-native';
 
 export default function App() {
 const age= 22;
-const licenseyears= 5;
+const licenseyears= 3;
 let feedback='';
 
 if (age>=18){
@@ -19,6 +19,34 @@ if (licenseyears>= 3){
   {
   feedback ='You are not allowed to drive'
   }
+
+  //Adding a switch statement
+  let drivingRank='';
+  switch (licenseyears) {
+      case 0:
+        drivingRank='Newbie driver';
+        break;
+        case 1:
+          drivingRank='Rookie driver with a year of experience';
+          break; 
+
+          case 2:
+            drivingRank='intermediate driver'
+            break;
+
+            case 3:
+              drivingRank='Qualified driver'
+              break;
+
+              case 4 :
+              drivingRank='experienced driver'
+              break;
+
+              default:
+                drivingRank='veteran driver with many years of experience'
+
+  }
+
 
 
 
@@ -39,6 +67,9 @@ if (licenseyears>= 3){
      <Text style={[styles.response,{fontSize:42,color:'black'}]}>{feedback}
       {/*This is my message to the user*/}
      </Text>
+     <Text style={[styles.response,{fontSize:40,color:'black',alignItems:'center'}]}>{drivingRank}
+      {/*This is my message to the user*/}
+     </Text>
       
     </View>
     </SafeAreaView>
@@ -48,7 +79,7 @@ if (licenseyears>= 3){
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'red',
+    backgroundColor: 'blue',
     alignItems: 'center',
     justifyContent: 'center',
   },
